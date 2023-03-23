@@ -1,0 +1,55 @@
+.feature{
+    position: relative;
+    padding-top: 56%;
+
+    .videoIntro{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
+   .info{
+    width: 35%;
+    position: absolute;
+    left: 50px;
+    bottom: 300px;
+    color: white;
+    // display: flex;
+    // flex-direction: column;
+   }
+
+   .btn-vol{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    padding: 6px;
+    transition: all 0.3s ease;
+    transform: scale(1);
+
+    &:hover{
+        transform: scale(1.2);
+        background-color: rgba(211,211,211, 0.18);
+    }
+   }
+
+
+   .fadeBotton{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    // background: linear-gradient(to bottom, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(15,15,15,0.6) 40%,
+        rgb(17,17,17),
+        rgb(17,17,17)
+    );
+   
+   }
+}
