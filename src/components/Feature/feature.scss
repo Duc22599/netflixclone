@@ -1,14 +1,13 @@
-.feature{
-    position: relative;
-    padding-top: 56%;
+.feature {
+  position: relative;
+  padding-top: 56%;
 
-    .videoIntro{
-        position: absolute;
-        top: 0;
-        left: 0;
-
-    }
-   .info{
+  .videoIntro {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .info {
     width: 35%;
     position: absolute;
     left: 50px;
@@ -16,9 +15,33 @@
     color: white;
     // display: flex;
     // flex-direction: column;
-   }
+    @media screen and (max-width: 1200px) {
+      bottom: 100px;
+      left: 30px;
+      width: 50%;
+    }
+    @media screen and (max-width: 900px) {
+      bottom: 100px;
+      left: 30px;
+      width: 45%;
+    }
+    @media screen and (max-width: 600px) {
+      text-align: center;
+      bottom: 0;
+      left: 0%;
+      width: 100%;
+      //   transform: translateX(-40%);
+      .desc > span {
+        display: none;
+      }
+      z-index: 30;
+      .desc > h1 {
+        font-size: 25px;
+      }
+    }
+  }
 
-   .btn-vol{
+  .btn-vol {
     position: absolute;
     top: 50%;
     right: 10%;
@@ -29,27 +52,26 @@
     padding: 6px;
     transition: all 0.3s ease;
     transform: scale(1);
+    z-index: 50;
 
-    &:hover{
-        transform: scale(1.2);
-        background-color: rgba(211,211,211, 0.18);
+    &:hover {
+      transform: scale(1.2);
+      background-color: rgba(211, 211, 211, 0.18);
     }
-   }
+  }
 
-
-   .fadeBotton{
+  .fadeBotton {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 100px;
     // background: linear-gradient(to bottom, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
     background-image: linear-gradient(
-        180deg,
-        transparent,
-        rgba(15,15,15,0.6) 40%,
-        rgb(17,17,17),
-        rgb(17,17,17)
+      180deg,
+      transparent,
+      rgba(15, 15, 15, 0.6) 40%,
+      rgb(17, 17, 17),
+      rgb(17, 17, 17)
     );
-   
-   }
+  }
 }

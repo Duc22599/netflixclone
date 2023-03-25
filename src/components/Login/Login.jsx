@@ -40,6 +40,7 @@ export const Login = () => {
   };
 
   const onEnter = (e) => {
+    e.preventDefault();
     if (e.code !== "Enter") {
       return;
     }
@@ -57,7 +58,7 @@ export const Login = () => {
         <ThemeProvider theme={theme}>
           <Box
             onKeyUp={onEnter}
-            component="form"
+            // component="form"
             sx={{
               backgroundColor: "rgba(0,0,0,0.75)",
               height: "50%",
@@ -68,7 +69,6 @@ export const Login = () => {
               left: "50%",
               transform: "translate(-50%, -50%)",
             }}
-            noValidate
             autoComplete="off"
           >
             <Typography
@@ -94,8 +94,8 @@ export const Login = () => {
                   borderRadius: "4px",
                   mb: 3,
                 }}
-                type="text"
-                label="User Name"
+                type="email"
+                label="Email"
                 id="filled-size-small"
                 variant="filled"
                 size="small"
@@ -136,6 +136,7 @@ export const Login = () => {
             </Box>
 
             <Button
+              // type="submit"
               onClick={handleSubmit}
               sx={{ width: "100%" }}
               variant="contained"
@@ -149,6 +150,7 @@ export const Login = () => {
                 New to Netflix?
               </Typography>
               <Link
+                href="#"
                 onClick={() => navigate("/register")}
                 component="button"
                 variant="body1"

@@ -28,7 +28,6 @@ export const MovieList = ({ movie, title, isNetflix }) => {
   const hanleArrowRigth = () => {
     const maxScroll =
       sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
-    console.log(maxScroll);
     if (sliderRef.current.scrollLeft < maxScroll) {
       ScrollSlider(
         sliderRef.current,
@@ -53,7 +52,11 @@ export const MovieList = ({ movie, title, isNetflix }) => {
       <h1 className="heading">{title}</h1>
 
       <Box
-        gridTemplateColumns={`repeat(${movie.length}, 300px)`}
+        gridTemplateColumns={{
+          xs: `repeat(${movie.length}, 200px)`,
+          md: `repeat(${movie.length}, 250px)`,
+          lg: `repeat(${movie.length}, 300px)`,
+        }}
         className="movieSlider"
         ref={sliderRef}
       >

@@ -15,7 +15,7 @@
   .searchContent {
     padding: 40px 60px;
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    // grid-template-columns: repeat(5, auto);
     gap: 8px;
 
     &:hover .movieItem {

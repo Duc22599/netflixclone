@@ -34,24 +34,21 @@ export const MovieDetails = () => {
       .catch((erro) => erro);
   };
 
-  const onReady = (e) => {
-    e.target.pauseVideo();
-  };
-
   useEffect(() => {
     infoDetail();
     videoTrailer();
   }, [id, title]);
 
   return (
-    <Box sx={style}>
+    <Style className="containerDetails">
       {movieTrailer ? (
         <>
           <ReactPlayer
+            className="videoTrailer"
             loop={true}
             width="100%"
-            height="58%"
-            url={`https://www.youtube.com/embed/${movieTrailer.key}?showinfo=0&enablejsapi=1&origin=http://localhost:3000`}
+            height="56%"
+            url={`https://www.youtube.com/embed/${movieTrailer.key}`}
             playing={true}
             volume={1}
             muted={mutedd}
@@ -78,23 +75,36 @@ export const MovieDetails = () => {
           variant="h4"
           component="h2"
           fontWeight="600"
+          mt={1}
+          sx={{ fontSize: { xs: "25px" } }}
         >
           {movieDetail.title}
         </Typography>
 
-        <Typography variant="subtitle1" component="span" fontSize="20px" mr={2}>
-          Release date: {moment(movieDetail.release_date).format("L")}
-        </Typography>
-        <Typography variant="subtitle1" component="span" fontSize="20px">
-          {`${hours}h ${remainingMinutes}m`}
-        </Typography>
+        <Box mt={1.5}>
+          <Typography
+            variant="subtitle1"
+            component="span"
+            mr={2}
+            sx={{ fontSize: { xs: "18px", md: "20px" } }}
+          >
+            Release date: {moment(movieDetail.release_date).format("L")}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            component="span"
+            sx={{ fontSize: { xs: "18px", md: "20px" } }}
+          >
+            {`${hours}h ${remainingMinutes}m`}
+          </Typography>
+        </Box>
 
         <Typography id="modal-modal-title" variant="p" component="p" mb={2}>
           <Typography
             variant="p"
             component="span"
             color="green"
-            fontSize="20px"
+            sx={{ fontSize: { xs: "18px", md: "20px" } }}
             fontWeight="600"
           >
             Rating: {Math.round(movieDetail.vote_average * 10)}%
@@ -104,14 +114,14 @@ export const MovieDetails = () => {
             component="span"
             ml={2}
             color="yellow"
-            fontSize="20px"
+            sx={{ fontSize: { xs: "18px", md: "20px" } }}
             fontWeight="600"
           >
             Popularity: {movieDetail.popularity}
           </Typography>
         </Typography>
 
-        <Typography id="modal-modal-description">
+        <Typography pb={5} id="modal-modal-description">
           {movieDetail.overview}
         </Typography>
       </BoxCustom>
@@ -125,32 +135,58 @@ export const MovieDetails = () => {
           )}
         </>
       )}
-    </Box>
+    </Style>
   );
 };
 
-const style = {
+const Style = styled("div")(({ theme }) => ({
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "45%",
-  // bgcolor: "rgb(0,0,0)",
-  bgcolor: "rgb(27, 25, 25)",
+  backgroundColor: "rgb(27, 25, 25)",
   color: "white",
-  height: "90%",
   boxShadow: 24,
-  // zIndex: "1000",
-};
+
+  [theme.breakpoints.down("md")]: {
+    width: "80%",
+    height: "50%",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "80%",
+    height: "60%",
+  },
+
+  [theme.breakpoints.up("md")]: {
+    width: "45%",
+    height: "90%",
+  },
+  // [theme.breakpoints.up("lg")]: {
+  //   backgroundColor: green[500],
+  // },
+}));
 
 const BoxCustom = styled(Box)(({ theme }) => ({
-  width: "95%",
+  // width: "95%",
   position: "absolute",
-  top: "52%",
-  left: "0",
+  // top: "50%",
+  // left: "0",
+  [theme.breakpoints.down("sm")]: {
+    top: "47%",
+    left: 0,
+  },
 
-  // backgroundColor: "rgba(0, 0, 0, 0.3)",
+  [theme.breakpoints.down("md")]: {
+    top: "47%",
+    left: 0,
+  },
+  [theme.breakpoints.up("md")]: {
+    top: "50%",
+    left: 0,
+    paddingRight: theme.spacing(1.3),
+  },
+
   backgroundImage: "linear-gradient(rgba(35, 33, 33,0.1), rgb(27, 25, 25))",
-  paddingLeft: theme.spacing(3),
-  paddingRight: theme.spacing(1.3),
+
+  paddingLeft: theme.spacing(1.5),
 }));

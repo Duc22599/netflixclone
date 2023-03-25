@@ -38,10 +38,13 @@ export const SignIn = () => {
         navigate("/home");
         sessionStorage.setItem("userToken", res.data.user.token);
       })
-      .catch((err) => setErroLogin("Email or Password wrong.Try Again!!"));
+      .catch((err) =>
+        setErroLogin("UserName or Email has already been taken.Try Again!!")
+      );
   };
 
   const onEnter = (e) => {
+    e.preventDefault();
     if (e.code !== "Enter") {
       return;
     }
@@ -59,7 +62,7 @@ export const SignIn = () => {
         <ThemeProvider theme={theme}>
           <Box
             onKeyUp={onEnter}
-            component="form"
+            // component="form"
             sx={{
               backgroundColor: "rgba(0,0,0,0.75)",
               height: "60%",

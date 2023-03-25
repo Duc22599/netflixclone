@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -31,7 +32,15 @@ export const SearchMovies = () => {
   return (
     <div className="containerMovie">
       {searchs && searchs.length > 0 ? (
-        <div className="searchContent">
+        <Box
+          gridTemplateColumns={{
+            sm: `repeat(3,auto)`,
+            xs: `repeat(2, auto)`,
+            md: `repeat(4, auto)`,
+            lg: `repeat(5, auto)`,
+          }}
+          className="searchContent"
+        >
           {searchs.map((item) => (
             <div
               key={item.id}
@@ -51,7 +60,7 @@ export const SearchMovies = () => {
               <span className="movieName">{item.name || item.title}</span>
             </div>
           ))}
-        </div>
+        </Box>
       ) : (
         <div className="notFound">
           Your search for "{keywords}" did not have any matches.
