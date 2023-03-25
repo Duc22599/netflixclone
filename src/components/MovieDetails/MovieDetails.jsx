@@ -49,9 +49,10 @@ export const MovieDetails = () => {
             width="100%"
             height="56%"
             url={`https://www.youtube.com/embed/${movieTrailer.key}`}
-            playing={true}
+            // playing={true}
             volume={1}
             muted={mutedd}
+            controls
           />
         </>
       ) : (

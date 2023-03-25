@@ -82,7 +82,7 @@ export const SignIn = () => {
               variant="h4"
               component="h4"
             >
-              Sign In
+              Sign Up
             </Typography>
 
             <Typography mt={2} color="red">
@@ -161,14 +161,19 @@ export const SignIn = () => {
               variant="contained"
               color="error"
             >
-              Login
+              Sign Up
             </Button>
 
             <Box display="flex" alignItems="center" mt={3}>
-              <Typography color="grey" mr={0.5}>
+              <Typography
+                fontSize={{ xs: "15px", md: "20px" }}
+                color="grey"
+                mr={0.5}
+              >
                 Have an account?
               </Typography>
               <Link
+                fontSize={{ xs: "15px", md: "20px" }}
                 onClick={() => navigate("/login")}
                 component="button"
                 variant="body1"

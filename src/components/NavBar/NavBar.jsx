@@ -72,14 +72,6 @@ export const NavBar = () => {
           />
 
           <Logout className="icon" onClick={handleLogout} />
-          {/* <div className="profile ">
-            <ArrowDropDown className="icon" />
-          
-            <div className="option">
-              <span>Settings</span>
-              <span onClick={handleLogout}>LogOut</span>
-            </div>
-          </div> */}
         </div>
       </div>
 
@@ -197,3 +189,14 @@ const style = {
   height: "100%",
   boxShadow: 24,
 };
+
+{
+  /* <div className="profile ">
+            <ArrowDropDown className="icon" />
+          
+            <div className="option">
+              <span>Settings</span>
+              <span onClick={handleLogout}>LogOut</span>
+            </div>
+          </div> */
+}
