@@ -62,7 +62,7 @@ export const Login = () => {
             sx={{
               backgroundColor: "rgba(0,0,0,0.75)",
               height: "50%",
-              width: "20%",
+              width: { xs: "50%", md: "20%" },
               padding: "60px 68px  40px 68px",
               position: "absolute",
               top: "50%",
