@@ -65,7 +65,7 @@ export const SignIn = () => {
             // component="form"
             sx={{
               backgroundColor: "rgba(0,0,0,0.75)",
-              height: "60%",
+              height: { xs: "50%", md: "60%" },
               width: { xs: "50%", md: "20%" },
               padding: "60px 68px  40px 68px",
               position: "absolute",
@@ -82,7 +82,7 @@ export const SignIn = () => {
               variant="h4"
               component="h4"
             >
-              Sign Up
+              Sign In
             </Typography>
 
             <Typography mt={2} color="red">
@@ -161,19 +161,19 @@ export const SignIn = () => {
               variant="contained"
               color="error"
             >
-              Sign Up
+              Sign In
             </Button>
 
             <Box display="flex" alignItems="center" mt={3}>
               <Typography
-                fontSize={{ xs: "15px", md: "20px" }}
+                fontSize={{ xs: "15px", md: "18px" }}
                 color="grey"
                 mr={0.5}
               >
                 Have an account?
               </Typography>
               <Link
-                fontSize={{ xs: "15px", md: "20px" }}
+                fontSize={{ xs: "15px", md: "18px" }}
                 onClick={() => navigate("/login")}
                 component="button"
                 variant="body1"
