@@ -31,7 +31,7 @@ export const MovieDetails = () => {
     httpAxios
       .get(`movie/${id}/videos?api_key=${keyApi}`)
       .then((res) => setMovieTrailer(res.data.results[0]))
-      .catch((erro) => erro);
+      .catch((erro) => console.log(erro));
   };
 
   useEffect(() => {
@@ -48,11 +48,10 @@ export const MovieDetails = () => {
             loop={true}
             width="100%"
             height="56%"
-            url={`https://www.youtube.com/embed/${movieTrailer.key}`}
-            // playing={true}
+            url={`https://www.youtube.com/watch?v=${movieTrailer.key}`}
+            playing={true}
             volume={1}
             muted={mutedd}
-            controls
           />
         </>
       ) : (
@@ -77,12 +76,12 @@ export const MovieDetails = () => {
           component="h2"
           fontWeight="600"
           mt={1}
-          sx={{ fontSize: { xs: "25px" } }}
+          sx={{ fontSize: { xs: "20px", sm: "24px", md: "25px" } }}
         >
           {movieDetail.title}
         </Typography>
 
-        <Box mt={1.5}>
+        <Box mt={{ xs: 3, sm: 0, md: 1 }}>
           <Typography
             variant="subtitle1"
             component="span"
@@ -149,13 +148,17 @@ const Style = styled("div")(({ theme }) => ({
   color: "white",
   boxShadow: 24,
 
+  // overflow: "auto",
+  // overflow: "-moz-scrollbars-none",
+  // msOverflowStyle: "none",
+
   [theme.breakpoints.down("md")]: {
     width: "80%",
-    height: "50%",
+    height: "calc(100vh - 300px)",
   },
   [theme.breakpoints.down("sm")]: {
     width: "80%",
-    height: "60%",
+    height: "calc(100vh - 40%)",
   },
 
   [theme.breakpoints.up("md")]: {

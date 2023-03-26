@@ -29,12 +29,14 @@ export const NavBar = () => {
 
   const navigate = useNavigate();
 
+  const removedSearch = () => (setSelectedTab("HomePage"), navigate("/home"));
+
   const handleSearch = (e) => {
     const key = e.target.value;
     setKeyWords(key);
     key.length > 0
       ? navigate(`/search?keywords=${key.trim()}`)
-      : navigate("/home") && setSelectedTab("HomePage");
+      : removedSearch();
   };
 
   window.onscroll = () => {
