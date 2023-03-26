@@ -65,7 +65,7 @@ export const SignIn = () => {
             // component="form"
             sx={{
               backgroundColor: "rgba(0,0,0,0.75)",
-              height: { xs: "50%", md: "60%" },
+              height: { xs: "55%", md: "60%" },
               width: { xs: "50%", md: "20%" },
               padding: "60px 68px  40px 68px",
               position: "absolute",
