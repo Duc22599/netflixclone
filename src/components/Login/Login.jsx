@@ -25,18 +25,21 @@ export const Login = () => {
   const [erroLogin, setErroLogin] = useState("");
 
   const handleSubmit = () => {
-    instance
-      .post("users/login", {
-        user: {
-          email: email,
-          password: password,
-        },
-      })
-      .then((res) => {
-        navigate("/home");
-        sessionStorage.setItem("userToken", res.data.user.token);
-      })
-      .catch((err) => setErroLogin("Email or Password wrong.Try Again!!"));
+    // instance
+    //   .post("users/login", {
+    //     user: {
+    //       email: email,
+    //       password: password,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     navigate("/home");
+    //     sessionStorage.setItem("userToken", "true");
+    //   })
+    //   .catch((err) => setErroLogin("Email or Password wrong.Try Again!!"));
+
+    navigate("/home");
+    sessionStorage.setItem("userToken", "true");
   };
 
   const onEnter = (e) => {

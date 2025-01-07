@@ -26,21 +26,23 @@ export const SignIn = () => {
   const [erroLogin, setErroLogin] = useState("");
 
   const handleSubmit = () => {
-    instance
-      .post("users", {
-        user: {
-          username: userName,
-          email: email,
-          password: password,
-        },
-      })
-      .then((res) => {
-        navigate("/home");
-        sessionStorage.setItem("userToken", res.data.user.token);
-      })
-      .catch((err) =>
-        setErroLogin("UserName or Email has already been taken.Try Again!!")
-      );
+    // instance
+    //   .post("users", {
+    //     user: {
+    //       username: userName,
+    //       email: email,
+    //       password: password,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     navigate("/home");
+    //     sessionStorage.setItem("userToken", "true");
+    //   })
+    //   .catch((err) =>
+    //     setErroLogin("UserName or Email has already been taken.Try Again!!")
+    //   );
+    navigate("/home");
+    sessionStorage.setItem("userToken", "true");
   };
 
   const onEnter = (e) => {
